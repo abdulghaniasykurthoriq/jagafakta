@@ -15,7 +15,7 @@ COPY . .
 
 # Generate Prisma Client
 RUN npx prisma generate
-RUN npx prisma db push
+# RUN npx prisma db push
 
 # Expose port yang digunakan aplikasi
 EXPOSE 5000
