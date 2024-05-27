@@ -5,6 +5,9 @@ import authMiddleware from "./middlewares/authMiddleware.js";
 import predictHoaxRoutes from "./routes/predictHoaxRoutes.js";
 import newsRoutes from "./routes/newsRoutes.js";
 
+import { fileURLToPath } from "url";
+import path from "path";
+
 const app = express();
 
 const PORT = process.env.PORT || 5000;
@@ -27,6 +30,11 @@ app.use((req, res, next) => {
 
   next();
 });
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Menyajikan file statis dari folder 'uploads'
+app.use("/uploads", express.static(path.join(__dirname, "../uploads")));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
