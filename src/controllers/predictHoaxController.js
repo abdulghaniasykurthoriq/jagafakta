@@ -41,7 +41,7 @@ const predictHoaxController = {
         const predict = await prisma.predicts.create({
           data: {
             result: "fakta",
-            image_url: `http://localhost:5000/uploads/${filename}`,
+            image_url: `${process.env.APP_URL}/uploads/${filename}`,
             userId: Auth.id, // Menggunakan id pengguna sebagai userId
           },
         });
