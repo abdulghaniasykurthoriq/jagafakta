@@ -8,8 +8,10 @@ const storage = multer.diskStorage({
     cb(null, "uploads/");
   },
   filename: (req, file, cb) => {
-    // cb(null, Date.now() + "-" + file.originalname);
-    cb(null, Date.now());
+    const timestamp = Date.now(); // Mendapatkan timestamp saat ini
+    const fileExtension = file.originalname.split(".").pop(); // Mendapatkan ekstensi file asli
+    const newFileName = `${timestamp}.${fileExtension}`; // Gabungkan timestamp dengan ekstensi file
+    cb(null, newFileName);
   },
 });
 
