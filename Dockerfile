@@ -13,6 +13,9 @@ RUN npm install
 # Copy seluruh kode aplikasi ke dalam container
 COPY . .
 
+# Generate Prisma Client
+RUN npx prisma generate
+
 # Expose port yang digunakan aplikasi
 EXPOSE 5000
 
