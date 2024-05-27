@@ -6,7 +6,8 @@ import predictHoaxRoutes from "./routes/predictHoaxRoutes.js";
 import newsRoutes from "./routes/newsRoutes.js";
 
 const app = express();
-const PORT = 5000;
+
+const PORT = process.env.PORT || 5000;
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
